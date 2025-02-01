@@ -38,15 +38,16 @@ h6 {
   line-height: 1.25; /* 17.5px */
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 600;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 10em;
+  /* padding: 1.5em; */
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);

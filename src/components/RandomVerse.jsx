@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { IconRefresh } from "@tabler/icons-react";
 
+/**
+ * A React component that displays a random Bible verse from the King James Version.
+ * When the user clicks the refresh button, it fetches a new random verse.
+ *
+ * Props:
+ *   - None
+ *
+ * State:
+ *   - verse: The current random verse, or null if there's an error.
+ *   - error: The error message if there's an error, or null if there's not.
+ *
+ * Hooks:
+ *   - useEffect: Calls the fetchRandomVerse function when the component mounts.
+ *
+ * Functions:
+ *   - fetchRandomVerse: Fetches a new random verse from the Bible API.
+ *   - handleButtonClick: Calls fetchRandomVerse when the button is clicked.
+ */
 const RandomVerse = () => {
   const [verse, setVerse] = useState(null);
   const [error, setError] = useState(null);
@@ -32,8 +50,10 @@ const RandomVerse = () => {
   }
 
   return (
-    <div>
-      <p className="subtitle"><em>&quot;{verse.text}&quot;</em></p>
+    <div className="pt-5">
+      <p className="subtitle">
+        <em>&quot;{verse.text}&quot;</em>
+      </p>
       <p className="title">
         {verse.book} {verse.chapter}:{verse.verse}
       </p>

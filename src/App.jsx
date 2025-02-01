@@ -17,12 +17,12 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div> */}
-        <section className="hero is-medium is-primary">
-            <div className="hero-body">
-                <RandomVerse/>
-            </div>
-        </section>
-        <GetBook />
+      <section className="hero is-medium is-primary mb-5">
+        <div className="hero-body">
+          <RandomVerse />
+        </div>
+      </section>
+      <GetBook />
     </>
   );
 }
