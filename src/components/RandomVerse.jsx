@@ -33,12 +33,12 @@ const RandomVerse = () => {
 
   return (
     <div>
-      <p>{verse.text}</p>
-      <p>
+      <p className="subtitle"><em>&quot;{verse.text}&quot;</em></p>
+      <p className="title">
         {verse.book} {verse.chapter}:{verse.verse}
       </p>
-      <button onClick={handleButtonClick}>
-        <IconRefresh /> New Verse
+      <button title="New Verse" onClick={handleButtonClick}>
+        <IconRefresh />
       </button>
     </div>
   );

@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 import RandomVerse from "./components/RandomVerse";
-import { IconBuildingChurch } from "@tabler/icons-react";
+import GetBook from "./components/GetBook";
 
 function App() {
   return (
@@ -17,13 +17,12 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div> */}
-      <div>
-        <IconBuildingChurch color="lightblue" size="64" />
-      </div>
-      <h1>Holy Bible App</h1>
-      <div className="card">
-        <RandomVerse />
-      </div>
+        <section className="hero is-medium is-primary">
+            <div className="hero-body">
+                <RandomVerse/>
+            </div>
+        </section>
+        <GetBook />
     </>
   );
 }

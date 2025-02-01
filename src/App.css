@@ -4,10 +4,42 @@
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 1.25; /* 45px */
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 1.25; /* 35px */
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 1.25; /* 27.5px */
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 1.25; /* 22.5px */
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 1.25; /* 20px */
+}
+
+h6 {
+  font-size: 14px;
+  line-height: 1.25; /* 17.5px */
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
 }
 
 .logo {
