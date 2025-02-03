@@ -18,11 +18,15 @@ function App() {
         </a>
       </div> */}
       <section className="hero is-medium is-primary mb-5">
-        <div className="hero-body">
+        <div className="hero-body is-centered">
+          <h2 className="is-1 title mt-3">Daily Verse</h2>
           <RandomVerse />
         </div>
       </section>
-      <GetBook />
+      <section className="container is-max-desktop mt-5 mb-5 is-clearfix">
+        <h2 className="title is-2 is-left">Read the bible</h2>
+        <GetBook />
+      </section>
     </>
   );
 }
