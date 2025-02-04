@@ -17,9 +17,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div> */}
-      <section className="hero is-medium is-primary mb-5">
-        <div className="hero-body is-centered">
-          <h2 className="is-1 title mt-3">Daily Verse</h2>
+      <section className="hero is-small is-primary mb-5">
+        <div className="hero-body has-text-centered">
+          <h2 className="is-1 fancy-title">-- Daily Verse --</h2>
           <RandomVerse />
         </div>
       </section>

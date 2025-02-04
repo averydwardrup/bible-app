@@ -3,11 +3,7 @@ import bibleLogo from "/bible.svg";
 const NavBar = () => {
   return (
     <div>
-      <nav
-        className="navbar is-fixed-top"
-        role="navigation"
-        aria-label="main navigation"
-      >
+      <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
             <img src={bibleLogo} className="logo" alt="Bible App logo" /> Holy
