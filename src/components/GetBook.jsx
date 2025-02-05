@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import TextToSpeech from "./textToSpeech";
+import { booksArray } from "../data/books";
 
 function GetBook() {
-  const [books, setBooks] = useState(null);
+  const [books, setBooks] = useState(booksArray);
   const [selectedBook, setSelectedBook] = useState("");
   const [chapters, setChapters] = useState(null);
   const [chapterText, setChapterText] = useState(null);
@@ -9,19 +11,19 @@ function GetBook() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchBooks = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch("https://bible-api.com/data/kjv");
-      const data = await response.json();
-      setBooks(data.books);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  // const fetchBooks = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const response = await fetch("https://bible-api.com/data/kjv");
+  //     const data = await response.json();
+  //     setBooks(data.books);
+  //   } catch (error) {
+  //     setError(error.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  // setLoading(false);
   const fetchChapters = async (selectedBook) => {
     try {
       setLoading(true);
@@ -55,6 +57,8 @@ function GetBook() {
   const handleBookChange = (event) => {
     const selectedBook = event.target.value;
     setSelectedBook(selectedBook);
+    setSelectedChapter("");
+    setChapterText(null);
     fetchChapters(selectedBook);
   };
 
@@ -65,7 +69,7 @@ function GetBook() {
   };
 
   useEffect(() => {
-    fetchBooks();
+    setLoading(false);
   }, []);
 
   if (loading) {
@@ -78,7 +82,7 @@ function GetBook() {
 
   return (
     <div className="columns is-8">
-      <div className="column is-one-third has-text-left is-sticky">
+      <div className="column is-one-third has-text-left">
         <div className="select is-rounded is-primary mb-4">
           <select value={selectedBook} onChange={handleBookChange}>
             <option value="">Select a book</option>
@@ -108,15 +112,32 @@ function GetBook() {
         )}
       </div>
       <div className="column is-two-thirds has-text-left block">
-        {chapterText && (
+        {chapterText ? (
           <div className="mb-4">
-            <h3>{chapterText.reference}</h3>
+            <div className="is-flex is-flex-direction-row is-align-items-center">
+              <div className="flexitem pr-2">
+                <h3 className="is-size-3">{chapterText.reference}</h3>
+              </div>
+              <div className="flexitem pt-2">
+                <TextToSpeech
+                  text={chapterText.verses.map((verse) => verse.text).join(" ")}
+                />
+              </div>
+            </div>
             {chapterText.verses.map((verse) => (
               <div key={verse.verse} className="mb-2">
                 <sup>{verse.verse}</sup>
                 {verse.text}
               </div>
             ))}
+          </div>
+        ) : (
+          <div className="skeleton-lines">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         )}
       </div>
