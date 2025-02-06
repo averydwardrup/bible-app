@@ -17,6 +17,15 @@
   content: "”";
 }
 
+.read-bible {
+  min-height: 48vh;
+}
+
+header .logo {
+  width: 25px;
+  margin-right: 4px;
+}
+
 @media screen and (min-width: 1024px) {
   .hero p.verse {
     padding-inline: 10rem;

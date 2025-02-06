@@ -11,19 +11,6 @@ function GetBook() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // const fetchBooks = async () => {
-  //   try {
-  //     setLoading(true);
-  //     const response = await fetch("https://bible-api.com/data/kjv");
-  //     const data = await response.json();
-  //     setBooks(data.books);
-  //   } catch (error) {
-  //     setError(error.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-  // setLoading(false);
   const fetchChapters = async (selectedBook) => {
     try {
       setLoading(true);
