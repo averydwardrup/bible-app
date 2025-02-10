@@ -30,6 +30,25 @@ header .logo {
   .hero p.verse {
     padding-inline: 10rem;
   }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 16px;
+    margin-right: 16px;
+    transition: background-color 0.3s ease-in-out;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1;
+  }
+  nav a:last-child {
+    margin-right: 0;
+  }
+  nav a:hover,
+  nav a.active {
+    background-color: #00d1b2;
+    color: #fff;
+    border-radius: 3px;
+  }
 }
 
 @media screen and (max-width: 1023px) {

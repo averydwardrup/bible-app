@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { IconRefresh } from "@tabler/icons-react";
+import { useState, useEffect } from "react";
+import {
+  IconRefresh,
+  IconBrandFacebookFilled,
+  IconShare2,
+} from "@tabler/icons-react";
 
 /**
  * A React component that displays a random Bible verse from the King James Version.
@@ -19,7 +23,7 @@ import { IconRefresh } from "@tabler/icons-react";
  *   - fetchRandomVerse: Fetches a new random verse from the Bible API.
  *   - handleButtonClick: Calls fetchRandomVerse when the button is clicked.
  */
-const RandomVerse = () => {
+export default function RandomVerse() {
   const [verse, setVerse] = useState(null);
   const [error, setError] = useState(null);
 
@@ -45,12 +49,22 @@ const RandomVerse = () => {
     return <div>Error: {error}</div>;
   }
 
+  // TODO: Adjust loading state to include Bulm Skeloton component
   if (!verse) {
     return <div>Loading...</div>;
   }
 
+  // TODO: Setup ability to share the randomly generated verse
   return (
     <div className="pt-5">
+      <div className="share-buttons">
+        <IconShare2 color="rgba(00,00,00,0.75)" size={18} />
+        <div className="show-button-wrapper">
+          <a href="#" className="share-button">
+            <IconBrandFacebookFilled color="rgba(00,00,00,0.75)" size={18} />
+          </a>
+        </div>
+      </div>
       <p className="subtitle verse mb-3">
         <em>{verse.text}</em>
       </p>
@@ -62,6 +76,4 @@ const RandomVerse = () => {
       </button>
     </div>
   );
-};
-
-export default RandomVerse;
+}
