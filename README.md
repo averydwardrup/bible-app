@@ -1,8 +1,8 @@
-# React + Vite
+# React Bible App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An app built mainly to read the King James Bible online with more features to come. A beta is available at https://bible.averywardrup.me.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React + Vite](https://vite.dev/guide/)
+- [React Router](https://reactrouter.com/home)
+- [Bulma](https://bulma.io) - Modern & lightweight CSS framework
+- [Bible API](https://bible-api.com) - provides a JSON API
