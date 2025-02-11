@@ -2,7 +2,7 @@
 
 An app built mainly to read the King James Bible online with more features to come.
 
-Beta - https://bible.averywardrup.me.
+#### [Beta](https://bible.averywardrup.me)
 
 ## Architecture
 
