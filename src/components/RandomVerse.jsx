@@ -31,6 +31,11 @@ export default function RandomVerse() {
     fetchRandomVerse();
   }, []);
 
+  /**
+   * Fetches a new random verse from the Bible API.
+   * Updates the verse state with the fetched verse data.
+   * Sets the error state if there's an error.
+   */
   const fetchRandomVerse = async () => {
     try {
       const response = await fetch("https://bible-api.com/data/kjv/random");
@@ -41,8 +46,23 @@ export default function RandomVerse() {
     }
   };
 
+  /**
+   * Handles the click event for the refresh button.
+   * Calls fetchRandomVerse to update the verse.
+   */
   const handleButtonClick = () => {
     fetchRandomVerse();
+  };
+
+  /**
+   * Toggles the visibility of the share button wrapper.
+   * Adds or removes the "is-hidden" class to/from the element with the class
+   * "show-button-wrapper", effectively showing or hiding the share buttons.
+   */
+  const showShare = () => {
+    document
+      .querySelector(".show-button-wrapper")
+      .classList.toggle("is-hidden");
   };
 
   if (error) {
@@ -57,9 +77,13 @@ export default function RandomVerse() {
   // TODO: Setup ability to share the randomly generated verse
   return (
     <div className="pt-5">
-      <div className="share-buttons">
-        <IconShare2 color="rgba(00,00,00,0.75)" size={18} />
-        <div className="show-button-wrapper">
+      <div className="share-buttons" onClick={showShare}>
+        <IconShare2
+          color="rgba(00,00,00,0.75)"
+          size={18}
+          className="is-clickable"
+        />
+        <div className="show-button-wrapper is-hidden">
           <a href="#" className="share-button">
             <IconBrandFacebookFilled color="rgba(00,00,00,0.75)" size={18} />
           </a>

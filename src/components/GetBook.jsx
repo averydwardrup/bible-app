@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import TextToSpeech from "./textToSpeech";
 import { booksArray } from "../data/books";
 
@@ -11,6 +11,14 @@ function GetBook() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  /**
+   * Fetches the chapters of a selected book from the Bible API.
+   * Updates the chapters state with the fetched chapters data.
+   * Sets the loading state during the fetch process and handles any errors.
+   *
+   * @param {string} selectedBook - The ID of the book to fetch chapters for.
+   * @returns {Promise<void>}
+   */
   const fetchChapters = async (selectedBook) => {
     try {
       setLoading(true);
@@ -26,6 +34,13 @@ function GetBook() {
     }
   };
 
+  /**
+   * Fetches the text of a specific chapter of a book of the Bible.
+   * Updates the chapterText state with the fetched text.
+   * @param {string} selectedBook - The book of the Bible to fetch from.
+   * @param {string} selectedChapter - The chapter of the book to fetch.
+   * @returns {Promise<void>}
+   */
   const fetchChapterText = async (selectedBook, selectedChapter) => {
     try {
       setLoading(true);
@@ -41,6 +56,13 @@ function GetBook() {
     }
   };
 
+  /**
+   * Handles the change event for the book selection dropdown.
+   * Updates the selected book, resets the selected chapter and chapter text,
+   * and fetches chapters for the newly selected book.
+   *
+   * @param {Event} event - The event triggered by changing the book selection.
+   */
   const handleBookChange = (event) => {
     const selectedBook = event.target.value;
     setSelectedBook(selectedBook);
@@ -49,10 +71,59 @@ function GetBook() {
     fetchChapters(selectedBook);
   };
 
+  /**
+   * Handles the change of the chapter select element by fetching the
+   * verses of the selected chapter and setting the selected chapter
+   * state.
+   * @param {Event} event The event that triggered this function.
+   */
   const handleChapterChange = (event) => {
     const selectedChapter = event.target.value;
     setSelectedChapter(selectedChapter);
     fetchChapterText(selectedBook, selectedChapter);
+  };
+
+  /**
+   * Returns a Bulma skeleton element with two paragraphs of text to
+   * represent loading state.
+   * @return {JSX.Element} A Bulma skeleton element with two paragraphs of text.
+   */
+  const loadingLines = () => {
+    return (
+      <>
+        <div className="is-rounded skeleton-lines">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className="is-rounded skeleton-lines mt-5">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </>
+    );
+  };
+
+  /**
+   * A React component that renders a loading skeleton for a select dropdown.
+   * Used as a placeholder while data is being fetched.
+   *
+   * Returns:
+   *   A JSX element representing a loading select dropdown.
+   */
+  const loadingSelect = () => {
+    return (
+      <div className="is-rounded is-primary select is-primary">
+        <select className="is-skeleton">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+    );
   };
 
   useEffect(() => {
@@ -60,7 +131,19 @@ function GetBook() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <div className="columns is-8">
+          <div className="column is-one-third has-text-left">
+            <div className="is-block mb-4">{loadingSelect()}</div>
+            <div className="is-block">{loadingSelect()}</div>
+          </div>
+          <div className="column is-two-thirds has-text-left block">
+            {loadingLines()}
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
@@ -119,13 +202,7 @@ function GetBook() {
             ))}
           </div>
         ) : (
-          <div className="skeleton-lines">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          loadingLines()
         )}
       </div>
     </div>
