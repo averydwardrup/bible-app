@@ -71,7 +71,7 @@ export default function RandomVerse() {
 
   // TODO: Adjust loading state to include Bulm Skeloton component
   if (!verse) {
-    return <div>Loading...</div>;
+    return <div className="is-loading">Loading...</div>;
   }
 
   // TODO: Setup ability to share the randomly generated verse

@@ -30,41 +30,12 @@ function PrayerRequestForm() {
             <TextInput type="tel" label="Phone Number" id="phoneNumber" />
           </div>
         </div>
-        <div className="field">
-          <label className="label">Subject</label>
-          <div className="control">
-            <div className="select">
-              <select>
-                <option>Select dropdown</option>
-                <option>With options</option>
-              </select>
-            </div>
-          </div>
-        </div>
         <TextArea label="Prayer Request" id="prayerRequest" required />
-        <div className="field">
+        <div className="field is-grouped mt-5 mb-5">
           <div className="control">
-            <label className="checkbox">
-              <input type="checkbox" />I agree to the{" "}
-              <a href="#">terms and conditions</a>
-            </label>
-          </div>
-        </div>
-        <div className="field">
-          <div className="control">
-            <label className="radio">
-              <input type="radio" name="question" />
-              Yes
-            </label>
-            <label className="radio">
-              <input type="radio" name="question" />
-              No
-            </label>
-          </div>
-        </div>
-        <div className="field is-grouped">
-          <div className="control">
-            <button className="button is-primary is-medium">Submit</button>
+            <button className="button is-primary is-medium">
+              Submit A Prayer Request
+            </button>
           </div>
         </div>
       </form>
