@@ -4,6 +4,32 @@ An app built mainly to read the King James Bible online with more features to co
 
 #### [Beta](https://bible.averywardrup.me)
 
+## Usage
+
+Clone
+
+```zsh
+git clone https://github.com/averydwardrup/bible-app.git
+```
+
+Install Dependencies
+
+```zsh
+npm i
+```
+
+Start Dev Server
+
+```zsh
+npm run dev
+```
+
+Build for production
+
+```
+npm run build
+```
+
 ## Architecture
 
 - [React + Vite](https://vite.dev/guide/)
