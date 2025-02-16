@@ -5,6 +5,7 @@ TextInput.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   required: PropTypes.bool,
+  changeHandler: PropTypes.func,
 };
 
 /**
@@ -20,7 +21,13 @@ TextInput.propTypes = {
  */
 
 // TODO: Make required help text only show when required is true
-export default function TextInput({ type = "text", label, id, required }) {
+export default function TextInput({
+  type = "text",
+  label,
+  id,
+  required,
+  changeHandler,
+}) {
   return (
     <>
       <div className="field">
@@ -34,6 +41,7 @@ export default function TextInput({ type = "text", label, id, required }) {
             type={type}
             placeholder={label}
             id={id}
+            onChange={changeHandler}
             {...(required && { required: true })}
           />
         </div>

@@ -4,9 +4,10 @@ TextArea.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   required: PropTypes.bool,
+  changeHandler: PropTypes.func,
 };
 
-export default function TextArea({ label, id, required }) {
+export default function TextArea({ label, id, required, changeHandler }) {
   return (
     <>
       <div className="field">
@@ -19,6 +20,7 @@ export default function TextArea({ label, id, required }) {
             className="textarea is-medium is-primary"
             placeholder={label}
             id={id}
+            onChange={changeHandler}
             defaultValue={""}
             {...(required && { required: true })}
           />
