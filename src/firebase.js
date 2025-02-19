@@ -1,15 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import dotenv from "react-dotenv";
 
-dotenv.config();
+const ENVAR = import.meta.env;
 
-const apiKey = dotenv.API_KEY;
-const authDomain = dotenv.AUTH_DOMAIN;
-const projectId = dotenv.PROJECT_ID;
-const storageBucket = dotenv.STORAGE_BUCKET;
-const messagingSenderId = dotenv.MESSAGING_SENDER_ID;
-const appId = dotenv.APP_ID;
+const apiKey = ENVAR.VITE_API_KEY;
+const authDomain = ENVAR.VITE_AUTH_DOMAIN;
+const projectId = ENVAR.VITE_PROJECT_ID;
+const storageBucket = ENVAR.VITE_STORAGE_BUCKET;
+const messagingSenderId = ENVAR.VITE_MESSAGING_SENDER_ID;
+const appId = ENVAR.VITE_APP_ID;
 
 const firebaseConfig = {
   apiKey,

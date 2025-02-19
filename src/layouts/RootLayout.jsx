@@ -20,6 +20,9 @@ export default function RootLayout() {
             <NavLink className="is-primary" to="/">
               Home
             </NavLink>
+            <NavLink className="is-primary" to="/why-kjv">
+              Why KJV?
+            </NavLink>
             <NavLink className="is-primary" to="/prayer-request">
               Prayer Request
             </NavLink>

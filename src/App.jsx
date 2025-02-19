@@ -9,6 +9,7 @@ import {
 // Pages
 import Home from "./pages/Home";
 import PrayerRequest from "./pages/PrayerRequest";
+import WhyKJV from "./pages/WhyKJV";
 
 //Layuouts
 import RootLayout from "./layouts/RootLayout";
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="prayer-request" element={<PrayerRequest />} />
+      <Route path="why-kjv" element={<WhyKJV />} />
     </Route>
   )
 );

@@ -1,16 +1,21 @@
 import PrayerRequestForm from "../components/PrayerRequestForm";
+import SlimHero from "../components/SlimHero";
 
 export default function PrayerRequest() {
   return (
     <div>
-      <section className="hero is-primary">
+      {/* <section className="hero is-primary">
         <div className="py-5 container">
           <p className="title">Submit a Prayer Request</p>
           <p className="subtitle">
             As Christians our greatest weapon is prayer
           </p>
         </div>
-      </section>
+      </section> */}
+      <SlimHero
+        title="Submit a Prayer Request"
+        subtitle="As Christians our greatest weapon is prayer"
+      />
       <section className="container is-max-desktop pt-5 mt-5 pb-5 mb-5 is-clearfix">
         <h2 className="title is-3 is-left mt-5">Prayer submission form</h2>
         <p className="mb-2">

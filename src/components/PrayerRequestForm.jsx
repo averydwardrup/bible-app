@@ -8,11 +8,12 @@ import TextArea from "./form/TextArea";
 // TODO: Add form submission
 // TODO: Add other form fields as reusable components
 
-function PrayerRequestForm() {
+export default function PrayerRequestForm() {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   // const [email, setEmail] = useState("");
   const [Request, setRequest] = useState("");
+  const [isSumitted, setIsSubmitted] = useState(false);
 
   /**
    * Handles the form submission event.
@@ -34,12 +35,15 @@ function PrayerRequestForm() {
     };
     try {
       const docRef = await addDoc(collection(db, "PrayerRequests"), data);
+      setIsSubmitted(true);
     } catch (error) {
       console.log(error);
+      setIsSubmitted(false);
     }
   };
-  return (
-    <div>
+
+  const prayerForm = () => {
+    return (
       <form onSubmit={handleSubmit}>
         <div className="columns is-2 mt-5">
           <div className="column">
@@ -47,9 +51,9 @@ function PrayerRequestForm() {
               <label className="label">Name</label>
               <div className="control">
                 <input
-                  className="input"
+                  className="input is-medium is-primary"
                   type="text"
-                  placeholder="Text input"
+                  placeholder="Your Name"
                   id="firstName"
                   onInput={(event) => setFirstName(event.target.value)}
                 />
@@ -64,12 +68,12 @@ function PrayerRequestForm() {
           </div>
           <div className="column">
             <div className="field">
-              <label className="label">Name</label>
+              <label className="label">Last Name</label>
               <div className="control">
                 <input
-                  className="input"
+                  className="input is-medium is-primary"
                   type="text"
-                  placeholder="Text input"
+                  placeholder="Your Last Name"
                   id="lastName"
                   onInput={(event) => setLastName(event.target.value)}
                 />
@@ -100,8 +104,8 @@ function PrayerRequestForm() {
           <label className="label">Message</label>
           <div className="control">
             <textarea
-              className="textarea"
-              placeholder="Textarea"
+              className="textarea is-medium is-primary"
+              placeholder="Your Prayer Request"
               id="prayerRequest"
               onInput={(event) => setRequest(event.target.value)}
             ></textarea>
@@ -121,8 +125,34 @@ function PrayerRequestForm() {
           </div>
         </div>
       </form>
-    </div>
-  );
-}
+    );
+  };
 
-export default PrayerRequestForm;
+  const viewFeed = () => {
+    history.push("/prayer-feed");
+  };
+
+  const successMessage = () => {
+    return (
+      <div className="has-background-dark rounded shadowed p-5 mb-5">
+        <h3>Thank you for submitting a prayer request.</h3>
+        <div className="is-flex is-align-items-center is-justify-content-center">
+          <div className="px-2">
+            <button className="button is-primary is-medium" onClick={viewFeed}>
+              View Prayer Feed
+            </button>
+          </div>
+          <div className="px-2">
+            <button
+              className="button is-primary is-medium"
+              onClick={() => setIsSubmitted(false)}
+            >
+              Submit Another Prayer Request
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  return <div>{isSumitted ? successMessage() : prayerForm()}</div>;
+}
