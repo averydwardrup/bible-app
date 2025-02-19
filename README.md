@@ -34,6 +34,7 @@ npm run build
 
 - [React + Vite](https://vite.dev/guide/)
 - [React Router](https://reactrouter.com/home)
+- [Cloud Firestore](https://firebase.google.com/docs/firestore)
 - [Bulma](https://bulma.io) - Modern & lightweight CSS framework
 - [Bible API](https://bible-api.com) - provides a JSON API
 
