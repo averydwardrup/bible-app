@@ -85,18 +85,18 @@ export default function RandomVerse() {
         />
         <div className="show-button-wrapper is-hidden">
           <a href="#" className="share-button">
-            <IconBrandFacebookFilled color="rgba(00,00,00,0.75)" size={18} />
+            <IconBrandFacebookFilled color="rgba(255,255,255,0.75)" size={18} />
           </a>
         </div>
       </div>
-      <p className="subtitle verse mb-3">
+      <p className="subtitle verse mb-3 has-text-white">
         <em>{verse.text}</em>
       </p>
-      <p className="title book-chapter">
+      <p className="title book-chapter has-text-white">
         {verse.book} {verse.chapter}:{verse.verse}
       </p>
       <button title="New Verse" onClick={handleButtonClick}>
-        <IconRefresh />
+        <IconRefresh color="rgba(00,00,00,0.75)" />
       </button>
     </div>
   );

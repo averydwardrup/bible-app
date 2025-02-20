@@ -26,6 +26,9 @@ export default function RootLayout() {
             <NavLink className="is-primary" to="/prayer-request">
               Prayer Request
             </NavLink>
+            <NavLink className="is-primary" to="/prayer-feed">
+              Prayer Feed
+            </NavLink>
           </nav>
         </div>
       </header>
