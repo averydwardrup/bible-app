@@ -5,7 +5,6 @@ import TextInput from "./form/TextInput";
 import TextArea from "./form/TextArea";
 
 // TODO: Add form validation
-// TODO: Add form submission
 // TODO: Add other form fields as reusable components
 
 export default function PrayerRequestForm() {

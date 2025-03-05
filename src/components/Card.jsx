@@ -1,3 +1,4 @@
+import { IconHeart, IconMessageShare, IconMessage } from "@tabler/icons-react";
 import PropTypes from "prop-types";
 
 Card.propTypes = {
@@ -39,6 +40,25 @@ export default function Card({ name, request }) {
             <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
           </div>
         </div>
+        <footer className="card-footer">
+          <p className="card-footer-item is-flex is-align-items-center is-justify-content-center">
+            <IconMessage size={21} /> Comment
+          </p>
+          <p className="card-footer-item">
+            {/* <span>
+              {" "}
+              Share on <a href="#">Facebook</a>{" "}
+            </span> */}
+            <span className="is-flex is-align-items-center is-justify-content-center">
+              <IconHeart size={21} /> Like
+            </span>
+          </p>
+          <p className="card-footer-item">
+            <span className="is-flex is-align-items-center is-justify-content-center">
+              <IconMessageShare size={21} /> Share
+            </span>
+          </p>
+        </footer>
       </div>
     </>
   );
